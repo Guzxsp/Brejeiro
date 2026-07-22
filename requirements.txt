@@ -1,10 +1,6 @@
 flask==3.0.0
 flask-cors==4.0.0
 bcrypt==4.1.2
-<<<<<<< HEAD
-supabase==2.0.0
-=======
 supabase==2.3.0
->>>>>>> 2f5686802cecabbb163e0d3e6d7e433c4d70bf71
 python-dotenv==1.0.0
 gunicorn==21.2.0
