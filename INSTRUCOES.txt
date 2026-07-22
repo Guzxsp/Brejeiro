@@ -1,0 +1,144 @@
+══════════════════════════════════════════════════════════════════
+  CONSULTA CERTIDÕES ONR — Instruções de Instalação e Uso
+══════════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────────
+  ARQUIVOS DESTE PROJETO
+────────────────────────────────────────────────────────────────
+
+  consulta_certidoes_onr.py   → Código-fonte principal do programa
+  INSTRUCOES.txt              → Este arquivo
+
+
+────────────────────────────────────────────────────────────────
+  OPÇÃO 1 — RODAR DIRETO COM PYTHON (sem instalar nada extra)
+────────────────────────────────────────────────────────────────
+
+  Pré-requisito: Python 3.9 ou superior instalado
+  Download:      https://www.python.org/downloads/
+
+  1. Abra o Prompt de Comando (cmd) ou PowerShell
+  2. Navegue até a pasta onde está o arquivo:
+
+       cd C:\caminho\para\a\pasta
+
+  3. Execute o programa:
+
+       python consulta_certidoes_onr.py
+
+  O programa abrirá automaticamente na tela.
+
+
+────────────────────────────────────────────────────────────────
+  OPÇÃO 2 — GERAR EXE (distribuível sem Python instalado)
+────────────────────────────────────────────────────────────────
+
+  Este EXE funciona em qualquer Windows 10/11 sem precisar
+  instalar Python na máquina de destino.
+
+  PASSO 1 — Instalar o PyInstaller (apenas uma vez):
+
+       pip install pyinstaller
+
+  PASSO 2 — Navegar até a pasta do projeto no cmd:
+
+       cd C:\caminho\para\a\pasta
+
+  PASSO 3 — Gerar o EXE com um único comando:
+
+       pyinstaller --onefile --windowed --name "ConsultaCertidoesONR" consulta_certidoes_onr.py
+
+  Explicação das opções:
+    --onefile    → Gera UM único arquivo .exe (mais fácil de distribuir)
+    --windowed   → Não abre janela de console/terminal ao executar
+    --name       → Nome do arquivo EXE gerado
+
+  PASSO 4 — Localizar o EXE gerado:
+
+       dist\ConsultaCertidoesONR.exe
+
+  Basta copiar este arquivo para qualquer computador Windows
+  e executar — não precisa instalar nada.
+
+  ⚠️  ATENÇÃO: A primeira execução do EXE pode demorar 3-5 segundos
+               para carregar. Isso é normal com PyInstaller.
+
+
+────────────────────────────────────────────────────────────────
+  COMO USAR O PROGRAMA
+────────────────────────────────────────────────────────────────
+
+  1. SELECIONAR PASTA
+     Clique em "📂 Selecionar Pasta" e escolha a pasta onde
+     estão os arquivos de certidões (subpastas são buscadas
+     automaticamente).
+
+     Exemplo: C:\Certidoes_ONR
+
+  2. DIGITAR OS PROTOCOLOS
+     Clique na caixa de texto e cole ou digite os protocolos,
+     um por linha.
+
+     Exemplo:
+       P26070520844D
+       P26070520845D
+       P26070520846D
+
+  3. CLICAR EM CONSULTAR
+     O programa varre a pasta e todas as subpastas.
+     Os resultados aparecem na tabela:
+
+       ✅ Encontrado     → O arquivo foi localizado
+       ❌ Não encontrado → Nenhum arquivo contém o protocolo
+
+  4. ABRIR ARQUIVO
+     Clique em uma linha com ✅ Encontrado para selecioná-la,
+     depois clique em "📂 ABRIR ARQUIVO" (ou dê duplo clique)
+     para abrir o arquivo com o programa padrão do Windows.
+
+  5. LIMPAR
+     Clique em "🗑 LIMPAR" para apagar os protocolos digitados
+     e os resultados, preparando para nova consulta.
+
+
+────────────────────────────────────────────────────────────────
+  REGRAS DE BUSCA
+────────────────────────────────────────────────────────────────
+
+  • A busca NÃO diferencia maiúsculas de minúsculas
+    (p26070520844d encontra P26070520844D)
+
+  • O protocolo é procurado em QUALQUER PARTE do nome do arquivo
+    (exemplo: "P26070520844D_Certidao.pdf" será encontrado)
+
+  • Um protocolo pode corresponder a múltiplos arquivos —
+    cada arquivo aparece como uma linha separada nos resultados
+
+  • O contador mostra quantos protocolos únicos foram
+    encontrados (não quantos arquivos)
+
+  • Nenhum arquivo é alterado ou criado durante a busca
+
+
+────────────────────────────────────────────────────────────────
+  DEPENDÊNCIAS
+────────────────────────────────────────────────────────────────
+
+  O programa usa APENAS bibliotecas padrão do Python:
+    - tkinter   (interface gráfica)
+    - os        (navegação em pastas)
+    - threading (busca sem travar a tela)
+
+  Não é necessário instalar nenhum pacote adicional via pip
+  para RODAR o programa. O pip install é necessário apenas
+  para GERAR o EXE com PyInstaller.
+
+
+────────────────────────────────────────────────────────────────
+  SUPORTE TÉCNICO
+────────────────────────────────────────────────────────────────
+
+  Desenvolvido com Python 3.9+ e Tkinter.
+  Compatível com Windows 10 e Windows 11.
+
+══════════════════════════════════════════════════════════════════
