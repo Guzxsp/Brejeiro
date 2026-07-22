@@ -15,11 +15,20 @@ from supabase import create_client
 app = Flask(__name__)
 CORS(app)  # Permite requisições de qualquer origem
 
+# Logs para debug
+print("SUPABASE_URL:", os.getenv('SUPABASE_URL'))
+print("SUPABASE_KEY:", os.getenv('SUPABASE_KEY')[:20] + "..." if os.getenv('SUPABASE_KEY') else "None")
+
 # Cliente Supabase
-supabase = create_client(
-    os.getenv('SUPABASE_URL'),
-    os.getenv('SUPABASE_KEY')
-)
+try:
+    supabase = create_client(
+        os.getenv('SUPABASE_URL'),
+        os.getenv('SUPABASE_KEY')
+    )
+    print("Supabase client inicializado com sucesso")
+except Exception as e:
+    print(f"Erro ao inicializar Supabase: {e}")
+    supabase = None
 
 # Token secreto para proteger rotas admin (deve ser configurado via variável de ambiente)
 ADMIN_SECRET_TOKEN = os.environ.get('ADMIN_SECRET_TOKEN', 'brejeiro_admin_secret_2024_secure_token_change_in_production')
